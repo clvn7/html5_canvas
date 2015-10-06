@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body onload="draw()">
+<canvas id="canvas" width="800" height="200"></canvas>
+<script>
+    function draw(){
+        var c=document.getElementById("canvas");
+        if(c.getContext){
+            var cc= c.getContext("2d");
+
+            var lineWidth=5;
+            var x1=120,y1=90,radius=80;
+            var startAngle= 0,endAngle=2*Math.PI;
+            var anticlockwise=true;
+
+            cc.beginPath();
+            cc.fillStyle="#000000";
+            cc.arc(x1,y1,radius,startAngle,endAngle,anticlockwise);
+            cc.fill();
+
+            x1=x1+160;
+            cc.beginPath();
+            cc.fillStyle="rgb(0,163,232)";
+            cc.arc(x1,y1,radius,startAngle,endAngle,anticlockwise);
+            cc.fill();
+
+            cc.strokeStyle="rgb(0,0,0)"
+            cc.lineWidth=lineWidth;
+            cc.arc(x1,y1,radius,startAngle,endAngle,anticlockwise);
+            cc.stroke();
+
+            x1=x1+100;
+            cc.beginPath();
+            cc.fillStyle="rgba(255,255,0,0.75)";
+            cc.arc(x1,y1,radius,startAngle,endAngle,anticlockwise);
+            cc.fill();
+
+            x1=x1+120;
+            endAngle=0.8*Math.PI;
+            cc.beginPath();
+            cc.strokeStyle="rgb(0.162.232)";
+            cc.arc(x1,y1,radius,startAngle,endAngle,anticlockwise);
+            x1=x1+40;
+            cc.arc(x1,y1,radius,startAngle,endAngle,false);
+            cc.stroke();
+        }
+    }
+</script>
+
+</body>
+</html>
