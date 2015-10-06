@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="my"></canvas>
+
+<script>
+    var c =document.getElementById("my");
+    var cc= c.getContext('2d');
+
+    for(i=20;i>0;i--){
+        cc.strokeStyle="black";
+        cc.lineWidth=i;
+        cc.beginPath();
+        cc.moveTo(20+(20-i)*24,5);
+        cc.lineTo(20+(20-i)*24,285);
+        cc.stroke();
+    }
+</script>
+</body>
+</html>
