@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="c" height="360" width="470"></canvas>
+
+<script>
+    var c= document.getElementById("c");
+    var cc= c.getContext("2d");
+    cc.textBaseline="top";
+    cc.textAlign="left";
+    cc.font="24px";
+    var styles=["round","butt","butt"];
+    for(i=0;i<styles.length;i++){
+        cc.fillStyle="rgb(0,89,187)";
+        cc.fillText(styles[i],10,75+i*125);
+        cc.strokeStyle="black";
+        cc.lineWidth=50;
+        cc.lineCap=styles[i];
+        cc.beginPath();
+
+        cc.moveTo(125,55+i*125);
+        cc.lineTo(350,55+i*125);
+        cc.stroke();
+        cc.strokeStyle="red";
+        cc.lineWidth=1;
+        cc.beginPath();
+        cc.moveTo(60,55+i*125);
+        cc.lineTo(390,55+i*125);
+        cc.stroke();
+    }
+
+    cc.beginPath();
+    cc.moveTo(125,5);
+    cc.lineTo(125,355);
+    cc.stroke();
+    cc.beginPath();
+    cc.moveTo(350,5);
+    cc.lineTo(350,355);
+    cc.stroke();
+</script>
+</body>
+</html>
