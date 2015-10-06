@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="mycanvas"></canvas>
+<script>
+
+    var c=document.getElementById("mycanvas");
+    var ctx= c.getContext("2d");
+
+    ctx.beginPath();
+    ctx.moveTo(25,25);
+    ctx.lineTo(105,25);
+    ctx.lineTo(25,105);
+    ctx.fill();
+
+
+    ctx.beginPath();
+    ctx.moveTo(125,125);
+    ctx.lineTo(125,45);
+    ctx.lineTo(45,125);
+    ctx.closePath();
+    ctx.stroke();
+</script>
+
+</body>
+</html>
