@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body onload="draw()">
+<canvas id="canvas1" width="900" height="200"></canvas>
+<script>
+    function draw(){
+        var c=document.getElementById("canvas1");
+        if(c.getContext){
+            var cc= c.getContext("2d");
+            var lineWidth=5;
+            var x1=50,y1=50,width=145,height=145;
+            cc.fillRect(x1,y1,width,height);
+            cc.lineWidth=lineWidth;
+            cc.strokeStyle="rgb(255,0,0)";
+            cc.strokeRect(x1-lineWidth,y1-lineWidth,width+2*lineWidth,height+2*lineWidth);
+
+
+            x1=x1+width+5*lineWidth;
+            cc.fillStyle="blue";
+            cc.fillRect(x1,y1,width,height);
+            cc.strokeStyle="green";
+            cc.strokeRect(x1-lineWidth,y1-lineWidth,width+2*lineWidth,height+2*lineWidth);
+
+            x1=x1+width+5*lineWidth;
+            cc.lineWidth1=1;
+            cc.strokeStyle="red";
+            cc.strokeRect(x1-lineWidth,y1-lineWidth,width+2*lineWidth,height+2*lineWidth);
+
+            x1=x1+width+5*lineWidth;
+            cc.fillStyle="rgb(0,162,332)";
+            cc.fillRect(x1,y1,width,height);
+            x1=x1+width/2;
+            y1=y1+height/4;
+            cc.fillStyle="rgba(255,255,0,0.75)";
+            cc.fillRect(x1,y1,width/2,height/4*3);
+
+            x1=x1+150;
+            y1=90;
+            cc.fillStyle="#000000";
+            cc.fillRect(x1,y1-25,100,100);
+            cc.clearRect(x1+20,y1-5,60,60);
+            cc.strokeRect(x1+25,y1,50,50);
+
+        }
+    }
+</script>
+
+</body>
+</html>
