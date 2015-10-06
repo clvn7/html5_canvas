@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body{
+            margin:5px;
+            text-align: center;
+
+        }
+        div{
+            width: 600px;
+            height: 150px;
+            margin: 0 auto 20px auto;
+            border: 2px solid #000000;
+        }
+    </style>
+</head>
+<body onload="return draw()">
+    <h2>miteLimit属性的含义及其用法</h2>
+    <div>
+        <canvas id="canvas1" width="600" height="150"></canvas>
+    </div>
+    <form onsubmit="return draw()">
+        <label>miterLimit:</label>
+        <input type="text" size="3" value="5" id="miterLimit" />
+        <input type="submit" value="重新绘制"/>
+    </form>
+    <script>
+        function draw(){
+            var c=document.getElementById("canvas1");
+            var cc= c.getContext("2d");
+            //清除参考线
+            cc.clearRect(0,0,600,150);
+
+            //绘制参考线
+            cc.strokeStyle="#0099ff";
+            cc.lineWidth=2;
+            cc.strokeRect(-5,50,610,50);//x,y,width,height   左上角横纵坐标，长，宽
+
+            cc.strokeStyle="#000000";
+            cc.lineWidth=5;
+            if(document.getElementById('miterLimit').value.match(/\d+(\.\d+)?/)){
+                cc.miterLimit=parseFloat(document.getElementById("miterLimit").value);
+
+            }
+            else{
+                alert("miterLimit必须是正值")
+            }
+            cc.beginPath();
+            cc.moveTo(0,100);
+            for(i=0;i<120;i++){
+                var dy=i%2==0?25:-25;
+                cc.lineTo(Math.pow(i,1.35)*2,75+dy);
+            }
+            cc.stroke();
+            return false;
+        }
+        function init(){
+            document.getElementById("miterLimit").value=document.getElementById("canvas").getContext('2d').miterLimit;
+            draw();
+        }
+    </script>
+</body>
+</html>
